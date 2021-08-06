@@ -1,7 +1,4 @@
-import React, { useState } from "react"
-
-// Router
-import { Link } from "gatsby"
+import React, { useRef, useState } from "react"
 
 // Components
 import Lolly from "../Lolly"
@@ -12,6 +9,22 @@ const CreateLolly = () => {
   const [topColor, setTopColor] = useState("#5e2c02")
   const [middleColor, setMiddleColor] = useState("#08072e")
   const [bottomColor, setBottomColor] = useState("#b8b8bf")
+
+  // References
+  const to = useRef()
+  const from = useRef()
+  const message = useRef()
+
+  // Handlers
+  const handleSubmit = e => {
+    // Submit form
+    console.log(
+      "Values",
+      to.current.value,
+      from.current.value,
+      message.current.value
+    )
+  }
 
   // Return
   return (
@@ -57,23 +70,26 @@ const CreateLolly = () => {
           className="py-2 px-4  focus:ring focus:border-blue-300 outline-none my-2 text-lg"
           type="text"
           placeholder="To"
+          ref={to}
         />
         <input
           className="py-2 px-4 focus:ring focus:border-blue-300 outline-none my-2 text-lg"
           type="text"
           placeholder="Message"
+          ref={message}
         />
         <input
           className="py-2 px-4 focus:ring focus:border-blue-300 outline-none my-2 text-lg"
           type="text"
           placeholder="From"
+          ref={from}
         />
-        <Link
-          to={"/share-lolly"}
+        <button
+          onClick={handleSubmit}
           className="my-6 px-8 py-4 inline-block border border-blue-400 font-medium text-lg text-white hover:bg-blue-400 hover:bg-opacity-90 transition duration-500"
         >
           Create and Get Link
-        </Link>
+        </button>
       </form>
     </div>
   )
