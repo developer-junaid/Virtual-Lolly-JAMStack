@@ -1,11 +1,11 @@
 import React from "react"
 
-const Lolly = () => {
+const Lolly = ({ className, width, height, top, middle, bottom }) => {
   return (
     <svg
-      className="lollipop"
-      width="400px"
-      height="300px"
+      className={className}
+      height={height}
+      width={width}
       viewBox="0 0 163 431"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -63,13 +63,13 @@ const Lolly = () => {
           </mask>
           <use
             className="lollyBottom"
-            fill="#deaa43"
+            fill={bottom}
             fillRule="nonzero"
             href="#path-1"
           ></use>
           <rect
             className="lollyTop"
-            fill="#deaa43"
+            fill={top}
             fillRule="nonzero"
             mask="url(#mask-2)"
             x="-25"
@@ -79,7 +79,7 @@ const Lolly = () => {
           ></rect>
           <rect
             className="lollyMiddle"
-            fill="#deaa43"
+            fill={middle}
             fillRule="nonzero"
             mask="url(#mask-2)"
             x="-29"
