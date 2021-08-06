@@ -1,0 +1,12 @@
+type lolly {
+  topColor: String!
+  middleColor: String!
+  bottomColor: String!
+  to: String!
+  from: String!
+  message: String!
+}
+
+type Query {
+  allLollies: [lolly!]!
+}
