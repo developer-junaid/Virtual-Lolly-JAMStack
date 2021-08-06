@@ -3,10 +3,23 @@ import React from "react"
 // Components
 import Lolly from "../components/Lolly"
 
+// Meta
+import { Helmet } from "react-helmet"
+import titleIcon from "./../../static/lollipop.svg"
+
+// Router
+import { Link } from "gatsby"
+
 // Home
 export default function Home() {
   return (
     <div className="container w-5/6 min-h-screen mx-auto px-2 flex-col items-center justify-center text-center">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Virtual Lolly</title>
+        <link rel="icon" href={titleIcon} />
+        <link rel="canonical" href="#" />
+      </Helmet>
       <h1 className="text-3xl text-white font-medium mt-10">
         Virtual Lolly App
       </h1>
@@ -26,9 +39,12 @@ export default function Home() {
         since the 1500s, when an unknown printer took a galley of type and
         scrambled it to make a type specimen book.
       </p>
-      <button className="my-6 px-8 py-4 border border-blue-400 font-medium text-lg text-white hover:bg-blue-400 hover:bg-opacity-90 transition duration-500">
+      <Link
+        to={"/create-lolly"}
+        className="my-6 px-8 py-4 inline-block border border-blue-400 font-medium text-lg text-white hover:bg-blue-400 hover:bg-opacity-90 transition duration-500"
+      >
         Get Started
-      </button>
+      </Link>
     </div>
   )
 }
