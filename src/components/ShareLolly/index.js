@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 // Components
 import Lolly from "../Lolly"
@@ -17,6 +17,29 @@ const ShareLolly = () => {
   const [middleColor, setMiddleColor] = useState("#08072e")
   const [bottomColor, setBottomColor] = useState("#b8b8bf")
 
+  // Data
+  const [lollies, setLollies] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  // Get Data, display, create, edit, delete
+  const loadLollies = async () => {
+    try {
+      setLoading(true)
+      const res = await fetch("/.netlify/functions/getAllLollies")
+      const lollies = await res.json() // Get lollies
+      setLollies(lollies)
+      setLoading(false)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    loadLollies()
+  }, [])
+
+  console.log("lollies", lollies)
+
   // Return
   return (
     <div className="container w-5/6 min-h-screen mx-auto px-2 flex-col items-center justify-center text-center">
@@ -29,13 +52,21 @@ const ShareLolly = () => {
       <h1 className="text-3xl text-white font-medium mt-10">
         Your Virtual Lolly
       </h1>
-      <Lolly
-        className="mx-auto my-10"
-        height={400}
-        top={topColor}
-        middle={middleColor}
-        bottom={bottomColor}
-      />
+      {!loading ? (
+        lollies.map(lolly => (
+          <Lolly
+            className="mx-auto my-10"
+            height={400}
+            top={lolly.topColor}
+            middle={lolly.middleColor}
+            bottom={lolly.bottomColor}
+          />
+        ))
+      ) : (
+        <div className="flex min-w-screen flex items-center justify-center h-50v flex-col">
+          <h2 className="align-middle ml-2 text-3xl">Spinner</h2>
+        </div>
+      )}
 
       <label className="py-2 px-4 block text-blue-400 border focus:ring focus:border-blue-300 outline-none my-4 text-lg">
         Your lolly is freezing. Share it with this link
