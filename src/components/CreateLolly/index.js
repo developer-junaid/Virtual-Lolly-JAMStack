@@ -46,11 +46,7 @@ const CreateLolly = () => {
       .then(res => res.json())
       .then(result => {
         console.log("result", result)
-
-        // Navigate to share-lolly page
-        setTimeout(() => navigate(`/lollies/${result._id}`), 5000)
-
-        // navigate(`/lollies/${result._id}`)
+        navigate(`/show-lolly?${result._id}`)
       })
       .catch(err => {
         console.log(err)
