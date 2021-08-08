@@ -3,6 +3,9 @@ import React, { useRef, useState } from "react"
 // Components
 import Lolly from "../Lolly"
 
+// Link
+import { navigate } from "gatsby"
+
 // Meta
 import { Helmet } from "react-helmet"
 import titleIcon from "./../../../static/lollipop.svg"
@@ -15,19 +18,44 @@ const CreateLolly = () => {
   const [bottomColor, setBottomColor] = useState("#b8b8bf")
 
   // References
-  const to = useRef()
-  const from = useRef()
-  const message = useRef()
+  const toRef = useRef()
+  const fromRef = useRef()
+  const messageRef = useRef()
 
   // Handlers
   const handleSubmit = e => {
     // Submit form
-    console.log(
-      "Values",
-      to.current.value,
-      from.current.value,
-      message.current.value
-    )
+    e.preventDefault()
+
+    let to = toRef.current.value
+    let from = fromRef.current.value
+    let message = messageRef.current.value
+
+    // Call CreateLolly
+    fetch(`/.netlify/functions/createLolly`, {
+      method: "POST",
+      body: JSON.stringify({
+        topColor,
+        middleColor,
+        bottomColor,
+        to,
+        from,
+        message,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log("result", result)
+
+        // Navigate to share-lolly page
+        setTimeout(() => navigate(`/lollies/${result._id}`), 5000)
+
+        // navigate(`/lollies/${result._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    // CreateLolly
   }
 
   // Return
@@ -80,20 +108,21 @@ const CreateLolly = () => {
           className="py-2 px-4  focus:ring focus:border-blue-300 outline-none my-2 text-lg"
           type="text"
           placeholder="To"
-          ref={to}
+          ref={toRef}
         />
         <input
           className="py-2 px-4 focus:ring focus:border-blue-300 outline-none my-2 text-lg"
           type="text"
           placeholder="Message"
-          ref={message}
+          ref={messageRef}
         />
         <input
           className="py-2 px-4 focus:ring focus:border-blue-300 outline-none my-2 text-lg"
           type="text"
           placeholder="From"
-          ref={from}
+          ref={fromRef}
         />
+
         <button
           onClick={handleSubmit}
           className="my-6 px-8 py-4 inline-block border border-blue-400 font-medium text-lg text-white hover:bg-blue-400 hover:bg-opacity-90 transition duration-500"
