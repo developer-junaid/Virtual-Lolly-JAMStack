@@ -2,13 +2,10 @@ import React, { useRef, useState } from "react"
 
 // Components
 import Lolly from "../Lolly"
+import Layout from "../Layout"
 
 // Link
 import { navigate } from "gatsby"
-
-// Meta
-import { Helmet } from "react-helmet"
-import titleIcon from "./../../../static/lollipop.svg"
 
 // Create Lolly
 const CreateLolly = () => {
@@ -56,13 +53,7 @@ const CreateLolly = () => {
 
   // Return
   return (
-    <div className="container w-5/6 min-h-screen mx-auto px-2 flex-col items-center justify-center text-center">
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Virtual Lolly</title>
-        <link rel="icon" href={titleIcon} />
-        <link rel="canonical" href="#" />
-      </Helmet>
+    <Layout>
       <h1 className="text-3xl text-white font-medium mt-10">
         Create Your Lolly
       </h1>
@@ -126,7 +117,7 @@ const CreateLolly = () => {
           Create and Get Link
         </button>
       </form>
-    </div>
+    </Layout>
   )
 }
 

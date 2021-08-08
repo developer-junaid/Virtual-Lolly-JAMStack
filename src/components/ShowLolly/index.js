@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react"
 
 // Components
 import Lolly from "../Lolly"
+import Layout from "../Layout"
 
 // Gatsby
 import { Link } from "gatsby"
-
-// Meta
-import { Helmet } from "react-helmet"
-import titleIcon from "../../../static/lollipop.svg"
 
 // Share Lolly
 const ShowLolly = ({ location }) => {
@@ -37,13 +34,7 @@ const ShowLolly = ({ location }) => {
 
   // Return
   return (
-    <div className="container w-5/6 min-h-screen mx-auto px-2 flex-col items-center justify-center text-center">
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Virtual Lolly</title>
-        <link rel="icon" href={titleIcon} />
-        <link rel="canonical" href="#" />
-      </Helmet>
+    <Layout>
       <h1 className="text-3xl text-white font-medium mt-10">
         Your Virtual Lolly
       </h1>
@@ -119,7 +110,7 @@ const ShowLolly = ({ location }) => {
           <h2 className="align-middle ml-2 text-3xl">Spinner</h2>
         </div>
       )}
-    </div>
+    </Layout>
   )
 }
 

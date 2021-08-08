@@ -2,10 +2,7 @@ import React from "react"
 
 // Components
 import Lolly from "../Lolly"
-
-// Meta
-import { Helmet } from "react-helmet"
-import titleIcon from "./../../../static/lollipop.svg"
+import Layout from "../Layout"
 
 // Router
 import { Link } from "gatsby"
@@ -13,13 +10,7 @@ import { Link } from "gatsby"
 // Home
 export default function Landing() {
   return (
-    <div className="container w-5/6 min-h-screen mx-auto px-2 flex-col items-center justify-center text-center">
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Virtual Lolly</title>
-        <link rel="icon" href={titleIcon} />
-        <link rel="canonical" href="#" />
-      </Helmet>
+    <Layout>
       <h1 className="text-3xl text-white font-medium mt-10">
         Virtual Lolly App
       </h1>
@@ -45,18 +36,6 @@ export default function Landing() {
       >
         Get Started
       </Link>
-
-      <footer className="border-t bottom-0 mt-6 p-4 ">
-        <h2 className="text-white">
-          Developed by{" "}
-          <a
-            href="https://github.com/developer-junaid"
-            className="text-blue-400 hover:text-blue-600 underline cursor-pointer"
-          >
-            Junaid
-          </a>
-        </h2>
-      </footer>
-    </div>
+    </Layout>
   )
 }
