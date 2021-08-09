@@ -11,13 +11,7 @@ import { Link } from "gatsby"
 export default function Landing() {
   return (
     <Layout title={"Virtual Lolly App"}>
-      <Lolly
-        className="mx-auto my-10"
-        height={250}
-        top={"#5e2c02"}
-        middle={"#08072e"}
-        bottom={"#b8b8bf"}
-      />
+      <Lolly top={"#5e2c02"} middle={"#08072e"} bottom={"#b8b8bf"} />
       <h2 className="text-white text-2xl mt-8">
         Create a virtual lolly pop and send to your friend
       </h2>

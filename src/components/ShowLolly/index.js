@@ -44,8 +44,6 @@ const ShowLolly = ({ location }) => {
             return (
               <Lolly
                 key={lollyId}
-                className="mx-auto my-10"
-                height={400}
                 top={lolly.topColor}
                 middle={lolly.middleColor}
                 bottom={lolly.bottomColor}

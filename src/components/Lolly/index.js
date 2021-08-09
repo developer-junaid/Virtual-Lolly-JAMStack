@@ -3,8 +3,8 @@ import React from "react"
 const Lolly = ({ className, width, height, top, middle, bottom }) => {
   return (
     <svg
-      className={className}
-      height={height}
+      className={className || "mx-auto my-10"}
+      height={height || 350}
       width={width}
       viewBox="0 0 163 431"
       version="1.1"

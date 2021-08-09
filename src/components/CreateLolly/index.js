@@ -35,13 +35,7 @@ const CreateLolly = () => {
   // Return
   return (
     <Layout title={"Create Your Lolly"}>
-      <Lolly
-        className="mx-auto my-10"
-        height={400}
-        top={topColor}
-        middle={middleColor}
-        bottom={bottomColor}
-      />
+      <Lolly top={topColor} middle={middleColor} bottom={bottomColor} />
       <form>
         <div className="flex-row justify-center items-center">
           <input
