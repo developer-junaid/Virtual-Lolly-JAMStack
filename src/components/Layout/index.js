@@ -9,7 +9,7 @@ import Footer from "../Footer"
 
 const Layout = ({ children, title }) => {
   return (
-    <div className="container w-5/6 min-h-screen mx-auto px-2 flex-col items-center justify-center text-center">
+    <div className="container w-5/6 min-h-screen mx-auto px-2 flex flex-col items-center text-center">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Virtual Lolly</title>
