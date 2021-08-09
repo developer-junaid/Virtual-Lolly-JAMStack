@@ -53,10 +53,7 @@ const CreateLolly = () => {
 
   // Return
   return (
-    <Layout>
-      <h1 className="text-3xl text-white font-medium mt-10">
-        Create Your Lolly
-      </h1>
+    <Layout title={"Create Your Lolly"}>
       <Lolly
         className="mx-auto my-10"
         height={400}

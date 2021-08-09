@@ -10,13 +10,10 @@ import { Link } from "gatsby"
 // Home
 export default function Landing() {
   return (
-    <Layout>
-      <h1 className="text-3xl text-white font-medium mt-10">
-        Virtual Lolly App
-      </h1>
+    <Layout title={"Virtual Lolly App"}>
       <Lolly
         className="mx-auto my-10"
-        height={400}
+        height={250}
         top={"#5e2c02"}
         middle={"#08072e"}
         bottom={"#b8b8bf"}

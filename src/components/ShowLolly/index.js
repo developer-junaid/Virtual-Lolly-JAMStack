@@ -34,11 +34,7 @@ const ShowLolly = ({ location }) => {
 
   // Return
   return (
-    <Layout>
-      <h1 className="text-3xl text-white font-medium mt-10">
-        Your Virtual Lolly
-      </h1>
-
+    <Layout title={"Your Virtual Lolly"}>
       {!loading ? (
         lollies.map(lolly => {
           const id = lolly._id
