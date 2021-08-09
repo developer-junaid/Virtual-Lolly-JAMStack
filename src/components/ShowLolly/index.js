@@ -55,6 +55,8 @@ const ShowLolly = ({ location }) => {
                 bottom={lolly.bottomColor}
               />
             )
+          } else {
+            return null
           }
         })
       ) : (
@@ -63,11 +65,14 @@ const ShowLolly = ({ location }) => {
         </div>
       )}
 
-      <label className="py-2 px-4 block  border focus:ring focus:border-blue-300 outline-none my-4">
+      <div
+        htmlFor=""
+        className="py-2 px-4 block border focus:ring focus:border-blue-300 outline-none my-4"
+      >
         <span className="text-blue-400 text-lg">
           Your lolly is freezing. Share it with below link
         </span>
-      </label>
+      </div>
       <div className="my-4 py-2 px-4 cursor-text flex bg-black bg-opacity-70 justify-center items-center  focus:ring focus:border-blue-300 outline-none">
         <span className="text-blue-400 font-mediu text-sm md:text-lg overflow-auto">
           {link}
@@ -103,6 +108,8 @@ const ShowLolly = ({ location }) => {
                 </span>
               </div>
             )
+          } else {
+            return null
           }
         })
       ) : (
