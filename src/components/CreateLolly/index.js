@@ -36,30 +36,30 @@ const CreateLolly = () => {
   return (
     <Layout title={"Create Your Lolly"}>
       <Lolly top={topColor} middle={middleColor} bottom={bottomColor} />
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="flex-row justify-center items-center">
           <input
             className="h-8"
             type="color"
             value={topColor}
-            name="top"
-            id="top"
+            name="topColor"
+            id="topColor"
             onChange={e => setTopColor(e.target.value)}
           />
           <input
             className="h-8 ml-3"
             type="color"
             value={middleColor}
-            name="middle"
-            id="middle"
+            name="middleColor"
+            id="middleColor"
             onChange={e => setMiddleColor(e.target.value)}
           />
           <input
             className="h-8 ml-3"
             type="color"
             value={bottomColor}
-            name="bottome"
-            id="bottom"
+            name="bottomColor"
+            id="bottomColor"
             onChange={e => setBottomColor(e.target.value)}
           />
         </div>
@@ -67,24 +67,26 @@ const CreateLolly = () => {
           <input
             className="py-2 px-4  focus:ring focus:border-blue-300 outline-none my-2 text-lg"
             type="text"
-            placeholder="To"
+            name="to"
             ref={toRef}
+            placeholder="To"
           />
           <input
             className="py-2 px-4 focus:ring focus:border-blue-300 outline-none my-2 text-lg"
             type="text"
-            placeholder="Message"
+            name="message"
             ref={messageRef}
+            placeholder="Message"
           />
           <input
             className="py-2 px-4 focus:ring focus:border-blue-300 outline-none my-2 text-lg"
             type="text"
-            placeholder="From"
+            name="from"
             ref={fromRef}
+            placeholder="From"
           />
 
           <button
-            onClick={handleSubmit}
             type={"submit"}
             className="my-6 px-8 py-4 inline-block border border-blue-400 font-medium text-lg text-white hover:bg-blue-400 hover:bg-opacity-90 transition duration-500"
           >
