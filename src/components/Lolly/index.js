@@ -18,7 +18,7 @@ const Lolly = ({ className, style, top, middle, bottom }) => {
   return (
     <svg
       style={style}
-      className={className || "mx-auto my-10"}
+      className={className || "mx-auto my-10 w-full"}
       height={lollyHeight}
       width={width}
       viewBox="0 0 163 431"
