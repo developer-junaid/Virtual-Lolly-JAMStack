@@ -6,7 +6,6 @@ import titleIcon from "./../../../static/lollipop.svg"
 
 // Footer
 import Footer from "../Footer"
-import Lolly from "../Lolly"
 
 // Layout
 const Layout = ({ children }) => {
@@ -18,7 +17,9 @@ const Layout = ({ children }) => {
         <link rel="icon" href={titleIcon} />
         <link rel="canonical" href="#" />
       </Helmet>
-      {children}
+      <div className="w-full lg:h-90v border flex flex-col lg:flex-row-reverse">
+        {children}
+      </div>
       <Footer />
     </div>
   )

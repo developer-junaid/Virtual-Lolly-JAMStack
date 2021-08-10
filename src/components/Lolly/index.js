@@ -1,10 +1,25 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import useWindowSize from "./use-window-size"
 
-const Lolly = ({ className, width, height, top, middle, bottom }) => {
+// Lolly
+const Lolly = ({ className, style, top, middle, bottom }) => {
+  const [lollyHeight, setLollyHeight] = useState(350)
+  let width = useWindowSize().width
+
+  useEffect(() => {
+    if (width > 1023) {
+      setLollyHeight(500)
+    } else {
+      setLollyHeight(350)
+    }
+  }, [width])
+
+  // Return
   return (
     <svg
+      style={style}
       className={className || "mx-auto my-10"}
-      height={height || 350}
+      height={lollyHeight}
       width={width}
       viewBox="0 0 163 431"
       version="1.1"
