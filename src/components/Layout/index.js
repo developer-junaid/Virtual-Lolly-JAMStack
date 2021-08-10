@@ -6,17 +6,18 @@ import titleIcon from "./../../../static/lollipop.svg"
 
 // Footer
 import Footer from "../Footer"
+import Lolly from "../Lolly"
 
-const Layout = ({ children, title }) => {
+// Layout
+const Layout = ({ children }) => {
   return (
-    <div className="container w-5/6 min-h-screen mx-auto px-2 flex flex-col items-center text-center">
+    <div className="container w-5/6 min-h-screen  mx-auto px-2 flex flex-col items-center text-center">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Virtual Lolly</title>
         <link rel="icon" href={titleIcon} />
         <link rel="canonical" href="#" />
       </Helmet>
-      <h1 className="text-3xl text-white font-medium mt-10">{title}</h1>
       {children}
       <Footer />
     </div>

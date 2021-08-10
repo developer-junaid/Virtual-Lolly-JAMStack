@@ -62,7 +62,10 @@ const CreateLolly = () => {
         handleSubmit,
         isSubmitting,
       }) => (
-        <Layout title={"Create Your Lolly"}>
+        <Layout>
+          <h1 className="text-4xl lg:text-5xl  text-white font-medium mt-10">
+            Create Your Lolly
+          </h1>
           <Lolly
             top={values.topColor}
             middle={values.middleColor}
