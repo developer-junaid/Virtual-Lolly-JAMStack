@@ -50,8 +50,7 @@ const CreateLolly = () => {
         const message = values.message
 
         // Post Data
-        console.log(to, from, message, topColor, middleColor, bottomColor)
-        // await createLolly(to, from, message, topColor, middleColor, bottomColor)
+        await createLolly(to, from, message, topColor, middleColor, bottomColor)
       }}
     >
       {({
@@ -70,7 +69,7 @@ const CreateLolly = () => {
             bottom={values.bottomColor}
           />
 
-          <form onSubmit={handleSubmit}>
+          <form className="w-full" onSubmit={handleSubmit}>
             <div className="flex-row justify-center items-center">
               <input
                 className="h-8"
@@ -103,7 +102,7 @@ const CreateLolly = () => {
                 className="py-2 px-4  focus:ring focus:border-blue-300 outline-none my-2 text-lg"
                 type="text"
                 name="to"
-                placeholder="To"
+                placeholder="To*"
                 autoFocus
                 onChange={handleChange}
                 value={values.to || ""}
@@ -116,7 +115,7 @@ const CreateLolly = () => {
                 className="py-2 px-4 focus:ring focus:border-blue-300 outline-none my-2 text-lg"
                 type="text"
                 name="message"
-                placeholder="Message"
+                placeholder="Message*"
                 value={values.message || ""}
                 onChange={handleChange}
               />
@@ -127,7 +126,7 @@ const CreateLolly = () => {
                 className="py-2 px-4 focus:ring focus:border-blue-300 outline-none my-2 text-lg"
                 type="text"
                 name="from"
-                placeholder="From"
+                placeholder="From*"
                 value={values.from || ""}
                 onChange={handleChange}
               />

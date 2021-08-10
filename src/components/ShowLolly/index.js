@@ -81,7 +81,7 @@ const ShowLolly = ({ location }) => {
           if (id === lollyId) {
             return (
               <div key={lollyId}>
-                <div className="py-6 px-4 drop-shadow-md shadow-2xl">
+                <div className="py-6 px-4 drop-shadow-md shadow">
                   <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg">
                     To: {lolly.to}
                   </label>
