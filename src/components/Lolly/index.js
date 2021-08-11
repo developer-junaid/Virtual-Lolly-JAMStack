@@ -7,8 +7,10 @@ const Lolly = ({ className, style, top, middle, bottom }) => {
   let width = useWindowSize().width
 
   useEffect(() => {
-    if (width > 1023) {
+    if (width >= 1024 && width < 1280) {
       setLollyHeight(500)
+    } else if (width >= 1280) {
+      setLollyHeight(600)
     } else {
       setLollyHeight(350)
     }

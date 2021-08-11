@@ -72,7 +72,7 @@ const CreateLolly = () => {
               />
               <div className="flex flex-row justify-center items-center">
                 <input
-                  className="h-8"
+                  className="h-8 cursor-pointer"
                   type="color"
                   value={values.topColor}
                   name="topColor"
@@ -81,7 +81,7 @@ const CreateLolly = () => {
                 />
 
                 <input
-                  className="h-8 ml-3"
+                  className="h-8 ml-3 cursor-pointer"
                   type="color"
                   value={values.middleColor}
                   name="middleColor"
@@ -89,7 +89,7 @@ const CreateLolly = () => {
                   onChange={handleChange}
                 />
                 <input
-                  className="h-8 ml-3"
+                  className="h-8 ml-3 cursor-pointer"
                   type="color"
                   value={values.bottomColor}
                   name="bottomColor"
@@ -100,13 +100,13 @@ const CreateLolly = () => {
             </div>
 
             <div className="lg:w-3/5 lg:flex lg:flex-col  lg:justify-center items-center">
-              <h1 className="text-4xl lg:text-5xl xl:text-8xl text-white font-medium mt-10">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl mb-10 text-white font-medium mt-10">
                 Create Your Lolly
               </h1>
 
               <div className="mt-8 flex flex-col">
                 <input
-                  className="py-2 px-4  focus:ring focus:border-blue-300 outline-none my-2 text-lg"
+                  className="py-2 px-4  focus:ring focus:border-blue-300 outline-none my-2 text-lg xl:text-xl"
                   type="text"
                   name="to"
                   placeholder="To*"
@@ -118,7 +118,7 @@ const CreateLolly = () => {
                 </span>
 
                 <input
-                  className="py-2 px-4 focus:ring focus:border-blue-300 outline-none my-2 text-lg"
+                  className="py-2 px-4 focus:ring focus:border-blue-300 outline-none  xl:text-xl my-2 text-lg"
                   type="text"
                   name="message"
                   placeholder="Message*"
@@ -129,7 +129,7 @@ const CreateLolly = () => {
                   {errors.message && touched.message && errors.message}
                 </span>
                 <input
-                  className="py-2 px-4 focus:ring focus:border-blue-300 outline-none my-2 text-lg"
+                  className="py-2 px-4 focus:ring focus:border-blue-300 xl:text-xl outline-none my-2 text-lg"
                   type="text"
                   name="from"
                   placeholder="From*"
@@ -141,7 +141,7 @@ const CreateLolly = () => {
                 </span>
                 <button
                   type={"submit"}
-                  className="my-6 px-8 py-4 inline-block border border-blue-400 font-medium text-lg text-white hover:bg-blue-400 hover:bg-opacity-90 transition duration-500"
+                  className="my-6 px-8 py-4 inline-block border border-blue-400 font-medium text-lg xl:text-xl text-white hover:bg-blue-400 hover:bg-opacity-90 transition duration-500"
                 >
                   {isSubmitting ? (
                     <span>Submitting</span>

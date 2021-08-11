@@ -63,7 +63,7 @@ const ShowLolly = ({ location }) => {
         </div>
 
         <div className="lg:w-3/5 lg:flex lg:flex-col lg:justify-center items-center">
-          <h1 className="text-4xl lg:text-5xl xl:text-8xl text-white font-medium mt-10">
+          <h1 className="text-4xl lg:text-5xl xl:text-6xl mb-10  text-white font-medium mt-10">
             Your Virtual Lolly
           </h1>
 
@@ -71,11 +71,11 @@ const ShowLolly = ({ location }) => {
             htmlFor=""
             className="py-2 px-4 block border focus:ring focus:border-blue-300 outline-none my-4"
           >
-            <span className="text-blue-400 text-lg">
+            <span className="text-blue-400 text-lg  xl:text-xl">
               Your lolly is freezing. Share it with below link
             </span>
           </div>
-          <div className="my-4 py-2 px-4 cursor-text flex bg-black bg-opacity-70 justify-center items-center  focus:ring focus:border-blue-300 outline-none">
+          <div className="my-4 py-2 px-4 cursor-text  xl:text-lg flex bg-black bg-opacity-70 justify-center items-center  focus:ring focus:border-blue-300 outline-none">
             <span className="text-blue-400 font-mediu text-sm md:text-lg overflow-auto">
               {link}
             </span>
@@ -90,17 +90,17 @@ const ShowLolly = ({ location }) => {
                 return (
                   <div key={lollyId}>
                     <div className="py-6 px-4 drop-shadow-md shadow">
-                      <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg">
+                      <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg xl:text-xl">
                         To: {lolly.to}
                       </label>
-                      <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg">
+                      <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg xl:text-xl">
                         {lolly.message}
                       </label>
-                      <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg">
+                      <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg xl:text-xl">
                         From: {lolly.from}
                       </label>
                     </div>
-                    <span className="text-gray-200 my-4 block">
+                    <span className="text-gray-200 my-4 block xl:text-lg">
                       {lolly.from} made this virtual lollipop for you.
                       <Link to="/" className="text-blue-400 underline">
                         You can make your own
