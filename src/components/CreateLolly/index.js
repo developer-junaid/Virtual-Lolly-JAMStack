@@ -63,17 +63,14 @@ const CreateLolly = () => {
         isSubmitting,
       }) => (
         <Layout>
-          <form
-            className="w-full lg:flex border border-blue-400 lg:flex-row"
-            onSubmit={handleSubmit}
-          >
-            <div className="lg:w-2/5 lg:flex border lg:flex-col lg:items-center lg:justify-center">
+          <form className="w-full lg:flex lg:flex-row" onSubmit={handleSubmit}>
+            <div className="lg:w-2/5 lg:flex lg:flex-col lg:items-center lg:justify-center">
               <Lolly
                 top={values.topColor}
                 middle={values.middleColor}
                 bottom={values.bottomColor}
               />
-              <div className="flex-row justify-center items-center">
+              <div className="flex flex-row justify-center items-center">
                 <input
                   className="h-8"
                   type="color"
@@ -102,7 +99,7 @@ const CreateLolly = () => {
               </div>
             </div>
 
-            <div className="lg:w-3/5 lg:flex lg:flex-col lg:justify-center items-start">
+            <div className="lg:w-3/5 lg:flex lg:flex-col  lg:justify-center items-center">
               <h1 className="text-4xl lg:text-5xl xl:text-8xl text-white font-medium mt-10">
                 Create Your Lolly
               </h1>
@@ -113,7 +110,6 @@ const CreateLolly = () => {
                   type="text"
                   name="to"
                   placeholder="To*"
-                  autoFocus
                   onChange={handleChange}
                   value={values.to || ""}
                 />
