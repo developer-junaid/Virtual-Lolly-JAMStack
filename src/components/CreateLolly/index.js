@@ -68,7 +68,7 @@ const CreateLolly = () => {
       }) => (
         <Layout>
           <form className="w-full lg:flex lg:flex-row" onSubmit={handleSubmit}>
-            <div className="lg:w-2/5 lg:flex lg:flex-col lg:items-center lg:justify-center">
+            <div className="lg:w-2/5 lg:flex lg:flex-col mb-6 lg:items-center lg:justify-center">
               <Lolly
                 top={values.topColor}
                 middle={values.middleColor}

@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
         <link rel="icon" href={titleIcon} />
         <link rel="canonical" href="#" />
       </Helmet>
-      <div className="w-full lg:h-90v flex flex-col lg:flex-row-reverse">
+      <div className="w-full lg:min-h-90v flex flex-col lg:flex-row-reverse">
         {children}
       </div>
       <Footer />

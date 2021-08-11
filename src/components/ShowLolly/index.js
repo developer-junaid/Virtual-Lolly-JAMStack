@@ -7,6 +7,11 @@ import Layout from "../Layout"
 // Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner"
+import { faCopy } from "@fortawesome/free-solid-svg-icons/faCopy"
+import { faClipboardCheck } from "@fortawesome/free-solid-svg-icons/faClipboardCheck"
+
+// Copy To Clipboard
+import { CopyToClipboard } from "react-copy-to-clipboard"
 
 // Gatsby
 import { Link } from "gatsby"
@@ -18,6 +23,10 @@ const ShowLolly = ({ location }) => {
   const [loading, setLoading] = useState(false)
   const lollyId = location.search.slice(1)
   const link = location.href
+
+  // Clipboard
+  let [value, setValue] = useState("")
+  let [copied, setCopied] = useState(false)
 
   //Get Lollies
   const loadLollies = async () => {
@@ -91,7 +100,17 @@ const ShowLolly = ({ location }) => {
           </div>
           <div className="my-4 py-2 px-4 cursor-text  xl:text-lg flex bg-black bg-opacity-70 justify-center items-center  focus:ring focus:border-blue-300 outline-none">
             <span className="text-blue-400 font-mediu text-sm md:text-lg overflow-auto">
-              {link}
+              {link} &nbsp;
+              <CopyToClipboard text={link} onCopy={() => setCopied(true)}>
+                <FontAwesomeIcon
+                  className={
+                    copied
+                      ? "mr-2 cursor-pointer text-green-300"
+                      : "mr-2 text-white cursor-pointer"
+                  }
+                  icon={copied ? faClipboardCheck : faCopy}
+                />
+              </CopyToClipboard>
             </span>
           </div>
 
