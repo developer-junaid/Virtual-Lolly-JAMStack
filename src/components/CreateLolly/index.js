@@ -7,6 +7,10 @@ import Layout from "../Layout"
 // Form
 import { Formik } from "formik"
 
+// Fontawesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner"
+
 // API Functions
 import { createLolly } from "../../api"
 
@@ -144,7 +148,10 @@ const CreateLolly = () => {
                   className="my-6 px-8 py-4 inline-block border border-blue-400 font-medium text-lg xl:text-xl text-white hover:bg-blue-400 hover:bg-opacity-90 transition duration-500"
                 >
                   {isSubmitting ? (
-                    <span>Submitting</span>
+                    <>
+                      <FontAwesomeIcon className="mr-2" icon={faSpinner} spin />
+                      Creating
+                    </>
                   ) : (
                     <span> Create and Get Link</span>
                   )}

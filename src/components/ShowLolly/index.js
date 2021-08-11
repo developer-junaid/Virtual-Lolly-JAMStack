@@ -4,6 +4,10 @@ import React, { useState, useEffect } from "react"
 import Lolly from "../Lolly"
 import Layout from "../Layout"
 
+// Fontawesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner"
+
 // Gatsby
 import { Link } from "gatsby"
 
@@ -32,34 +36,44 @@ const ShowLolly = ({ location }) => {
     loadLollies()
   }, [])
 
+  // Loading
+  if (loading) {
+    return (
+      <Layout>
+        <div className="flex min-w-full min-h-full flex items-center justify-center text-center flex-col">
+          <FontAwesomeIcon
+            className="text-white"
+            icon={faSpinner}
+            spin
+            size="3x"
+          />
+        </div>
+      </Layout>
+    )
+  }
+
   // Return
   return (
     <Layout>
       <div className="w-full lg:flex lg:flex-row">
         <div className="lg:w-2/5 flex items-center justify-center">
-          {!loading ? (
-            lollies.map(lolly => {
-              const id = lolly._id
+          {lollies.map(lolly => {
+            const id = lolly._id
 
-              // Get requested lolly
-              if (id === lollyId) {
-                return (
-                  <Lolly
-                    key={lollyId}
-                    top={lolly.topColor}
-                    middle={lolly.middleColor}
-                    bottom={lolly.bottomColor}
-                  />
-                )
-              } else {
-                return null
-              }
-            })
-          ) : (
-            <div className="flex min-w-screen flex items-center justify-center h-50v flex-col">
-              <h2 className="align-middle ml-2 text-3xl">Spinner</h2>
-            </div>
-          )}{" "}
+            // Get requested lolly
+            if (id === lollyId) {
+              return (
+                <Lolly
+                  key={lollyId}
+                  top={lolly.topColor}
+                  middle={lolly.middleColor}
+                  bottom={lolly.bottomColor}
+                />
+              )
+            } else {
+              return null
+            }
+          })}
         </div>
 
         <div className="lg:w-3/5 lg:flex lg:flex-col lg:justify-center items-center">
@@ -81,44 +95,38 @@ const ShowLolly = ({ location }) => {
             </span>
           </div>
 
-          {!loading ? (
-            lollies.map(lolly => {
-              const id = lolly._id
+          {lollies.map(lolly => {
+            const id = lolly._id
 
-              // Get requested lolly
-              if (id === lollyId) {
-                return (
-                  <div key={lollyId}>
-                    <div className="py-6 px-4 drop-shadow-md shadow">
-                      <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg xl:text-xl">
-                        To: {lolly.to}
-                      </label>
-                      <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg xl:text-xl">
-                        {lolly.message}
-                      </label>
-                      <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg xl:text-xl">
-                        From: {lolly.from}
-                      </label>
-                    </div>
-                    <span className="text-gray-200 my-4 block xl:text-lg">
-                      {lolly.from} made this virtual lollipop for you.
-                      <Link to="/" className="text-blue-400 underline">
-                        You can make your own
-                      </Link>
-                      &nbsp;to send to a friend who deserve some sugary treat
-                      which won't rot their teeth...
-                    </span>
+            // Get requested lolly
+            if (id === lollyId) {
+              return (
+                <div key={lollyId}>
+                  <div className="py-6 px-4 drop-shadow-md shadow">
+                    <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg xl:text-xl">
+                      To: {lolly.to}
+                    </label>
+                    <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg xl:text-xl">
+                      {lolly.message}
+                    </label>
+                    <label className="py-2 px-4 block text-white border border-gray-600 focus:ring focus:border-blue-300 outline-none my-4 text-lg xl:text-xl">
+                      From: {lolly.from}
+                    </label>
                   </div>
-                )
-              } else {
-                return null
-              }
-            })
-          ) : (
-            <div className="flex min-w-screen flex items-center justify-center h-50v flex-col">
-              <h2 className="align-middle ml-2 text-3xl">Spinner</h2>
-            </div>
-          )}
+                  <span className="text-gray-200 my-4 block xl:text-lg">
+                    {lolly.from} made this virtual lollipop for you.&nbsp;
+                    <Link to="/" className="text-blue-400 underline">
+                      You can make your own
+                    </Link>
+                    &nbsp;to send to a friend who deserve some sugary treat
+                    which won't rot their teeth...
+                  </span>
+                </div>
+              )
+            } else {
+              return null
+            }
+          })}
         </div>
       </div>
     </Layout>
