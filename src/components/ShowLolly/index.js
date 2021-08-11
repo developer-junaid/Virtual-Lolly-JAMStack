@@ -25,7 +25,6 @@ const ShowLolly = ({ location }) => {
   const link = location.href
 
   // Clipboard
-  let [value, setValue] = useState("")
   let [copied, setCopied] = useState(false)
 
   //Get Lollies
