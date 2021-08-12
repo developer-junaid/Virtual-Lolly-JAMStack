@@ -4,15 +4,15 @@ import React from "react"
 import Lolly from "../Lolly"
 import Layout from "../Layout"
 
+// Link
+import { navigate } from "gatsby"
+
 // Form
 import { Formik } from "formik"
 
 // Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner"
-
-// API Functions
-import { createLolly } from "../../api"
 
 // Create Lolly
 const CreateLolly = () => {
@@ -45,7 +45,7 @@ const CreateLolly = () => {
         return errors
       }}
       // Submit
-      onSubmit={async (values, { setSubmitting, resetForm }) => {
+      onSubmit={async (values, { resetForm }) => {
         const topColor = values.topColor
         const middleColor = values.middleColor
         const bottomColor = values.bottomColor
@@ -54,7 +54,26 @@ const CreateLolly = () => {
         const message = values.message
 
         // Post Data
-        await createLolly(to, from, message, topColor, middleColor, bottomColor)
+
+        try {
+          const response = await fetch(`/.netlify/functions/createLolly`, {
+            method: "POST",
+            body: JSON.stringify({
+              topColor,
+              middleColor,
+              bottomColor,
+              to,
+              from,
+              message,
+            }),
+          })
+          const result = await response.json()
+          // Navigate
+          navigate(`/show-lolly?${result._id}`)
+        } catch (error) {
+          console.log(error)
+        }
+
         resetForm()
       }}
     >
