@@ -2,7 +2,7 @@
 
 ### _Virtual Lolly  Application using Serverless JAM Stack (Gatsby, GraphQL, FaunaDB, Serverless Functions) !!_
 
-### Video :link: 
+### Video :link: https://youtu.be/98S4NPzgjM8
 
 ### Link :link: https://virtual-lolly-jamstack.netlify.app/
 
