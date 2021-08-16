@@ -40,8 +40,8 @@ const ShowLolly = ({ location }) => {
     }
   }
 
-  useEffect(() => {
-    loadLollies()
+  useEffect(async () => {
+    await loadLollies()
   }, [])
 
   // Loading
@@ -98,7 +98,7 @@ const ShowLolly = ({ location }) => {
             </span>
           </div>
           <div className="my-4 py-2 px-4 cursor-text  xl:text-lg flex bg-black bg-opacity-70 justify-center items-center  focus:ring focus:border-blue-300 outline-none">
-            <span className="text-blue-400 font-mediu text-sm md:text-lg overflow-auto">
+            <span className="text-blue-400 font-medium text-sm md:text-lg overflow-auto">
               {link} &nbsp;
               <CopyToClipboard text={link} onCopy={() => setCopied(true)}>
                 <FontAwesomeIcon
