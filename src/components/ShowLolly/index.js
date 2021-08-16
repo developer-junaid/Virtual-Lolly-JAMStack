@@ -27,21 +27,22 @@ const ShowLolly = ({ location }) => {
   // Clipboard
   let [copied, setCopied] = useState(false)
 
-  //Get Lollies
-  const loadLollies = async () => {
-    try {
-      setLoading(true)
-      const res = await fetch("/.netlify/functions/getAllLollies")
-      const lollies = await res.json() // Get lollies
-      setLollies(lollies)
-      setLoading(false)
-    } catch (error) {
-      console.error(error)
+  useEffect(() => {
+    //Get Lollies
+    const loadLollies = async () => {
+      try {
+        setLoading(true)
+        const res = await fetch("/.netlify/functions/getAllLollies")
+        const lollies = await res.json() // Get lollies
+        setLollies(lollies)
+        setLoading(false)
+      } catch (error) {
+        console.error(error)
+        setLoading(false)
+      }
     }
-  }
 
-  useEffect(async () => {
-    await loadLollies()
+    loadLollies()
   }, [])
 
   // Loading
